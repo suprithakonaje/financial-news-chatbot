@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial News Summarizer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        #chat-history::-webkit-scrollbar { width: 8px; }
+        #chat-history::-webkit-scrollbar-track { background: #2d3748; border-radius: 10px; }
+        #chat-history::-webkit-scrollbar-thumb { background-color: #4a5568; border-radius: 10px; border: 2px solid #2d3748; }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 flex items-center justify-center min-h-screen p-4">
+
+<div class="w-full max-w-2xl bg-gray-800 rounded-2xl shadow-2xl overflow-hidden flex flex-col h-[90vh]">
+    <div class="bg-gray-700 p-6 flex items-center justify-between rounded-t-2xl">
+        <h1 class="text-2xl font-bold">Financial News Summarizer</h1>
+    </div>
+
+    <div id="chat-history" class="flex-grow p-6 space-y-4 overflow-y-auto">
+        <div class="text-center text-gray-400 italic">
+            Ask me a question about financial news!
+        </div>
+    </div>
+
+    <div class="bg-gray-700 p-4 flex items-center space-x-4">
+        <input type="text" id="query" placeholder="E.g., What is Apple doing with AI?" class="flex-grow p-3 rounded-lg bg-gray-800 border-2 border-gray-600 focus:outline-none focus:border-blue-500 transition-colors">
+
+        <!-- Mode Selector -->
+        <select id="mode" class="bg-gray-800 border-2 border-gray-600 rounded-lg p-3 focus:outline-none focus:border-blue-500">
+            <option value="concise" selected>Concise</option>
+            <option value="detailed">Detailed</option>
+        </select>
+
+        <button id="ask-button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors">
+            Ask
+        </button>
+    </div>
+</div>
+
+<!-- Load the JS file from static folder with cache busting -->
+<script src="{{ url_for('static', filename='chatbotUI.js') }}?v=2" defer></script>
+</body>
+</html>
