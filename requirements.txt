@@ -1,4 +1,11 @@
-sentence-transformers
-faiss-cpu
-pytest
-flask
+# Core dependencies
+sentence-transformers>=2.2.2
+faiss-cpu>=1.7.4
+flask>=2.3.2
+
+# Testing
+pytest>=7.4.0
+
+# Optional evaluation metrics (for checking summary quality)
+rouge-score>=0.1.2
+bert-score>=0.3.13
